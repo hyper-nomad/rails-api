@@ -1,4 +1,4 @@
-# redish-api
+# rails-api
 redish backend api server
 
 # Ruby install
@@ -12,16 +12,16 @@ $ bundle -v
 Bundler version 1.12.3
 ```
 
-# redish-api
+# rails-api
 ```
-$ git clone git@github.com:redish/redish-api.git
-$ cd redish-api
+$ git clone git@github.com:hyper-nomad/rails-api.git
+$ cd rails-api
 $ bundle install --path vendor/bundle
 $ cp config/database.yml.example config/database.yml
 $ cp config/accounts.example.yml config/accounts.yml
 $ rake db:create db:migrate db:seed
 ```
-以上を順次実行すればdevelopment環境でredish-apiを実行する準備は完了です。
+以上を順次実行すればdevelopment環境でrails-apiを実行する準備は完了です。
 
 ## コンソールとサーバの実行
 ```
@@ -42,6 +42,3 @@ $ rspec spec/. -f d
   - http://localhost:3000/docs
 - sign up
   - http://localhost:3000/users/sign_up
-
-- facebook auth 認証
-  - http://localhost:3000/users/auth/facebook
