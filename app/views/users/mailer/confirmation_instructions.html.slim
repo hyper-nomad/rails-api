@@ -1,0 +1,8 @@
+p
+  | Redish会員メールアドレス変更
+p
+  = @email
+p
+  | 確認トークンをどうやってappに渡すか
+p
+  = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)

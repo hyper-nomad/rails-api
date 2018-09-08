@@ -1,0 +1,15 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+
+development:
+  <<: *default
+  database: redish-development
+  username:
+  password:
+
+test:
+  <<: *default
+  database: redish-test
+  username:
+  password:

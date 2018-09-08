@@ -1,0 +1,9 @@
+development: &development
+  aws:
+    key: xxxxxxxxxxxxxxxxxxxx
+    secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    region: ap-northeast-1
+    images_backet: redish-development-xxxxxx
+
+test:
+  <<: *development

@@ -1,0 +1,98 @@
+ja:
+  api:
+    doc:
+      sessions:
+        sign_in: |
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          Redish-Application-Token | ios_app_id_on_development | 201 |
+          Redish-Application-Token | android_app_id_on_development | 201 |
+          Redish-Application-Token | [else value] | 401 |
+          email / password | user@example.com / test1234 |201|
+          facebook_access_token | [valid facebook access token] |401|
+          DUPLICATE_PARAMETERS |  |400|
+          NO_PARAMETER |  |400|
+          ANY_PARAMETER | [other value] |401|
+        sign_out: |
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          Redish-Access-Token | [a token that is generated at sign in] |200|
+          Redish-Access-Token | [other value] |401|
+      users:
+        show: |
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          Redish-Access-Token | %{redish_access_token} |200|
+          Redish-Access-Token | [other value] |401|
+        sign_up: |
+          Send confirmation mail if email given
+
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          email                 | [valid email address] |201|
+          facebook_access_token | [valid facebook access token] |201|
+          email                 | [registered email address] |409|
+          facebook_access_token | [facebook access token of registered account] |409|
+          ANY_PARAMETERS | [other value] |401|
+        edit: |
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          (Redish-Access-Token, password, password_confirmation) | ('valid_redish_access_token', 'password', 'password') |200|
+          (Redish-Access-Token, password, password_confirmation) | ('valid_redish_access_token', 'password', [other value]) |400|
+          Redish-Access-Token | [other value] |401|
+      merchant_users:
+        show: |
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          Redish-Access-Token | %{redish_access_token} |200|
+          Redish-Access-Token | [other value] |401|
+        sign_up: |
+          Send confirmation mail if email given
+
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          email                 | [valid email address] |201|
+          email                 | [registered email address] |409|
+          ANY_PARAMETERS | [other value] |401|
+        confirmation: |
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          (Redish-Access-Token, confirmation_code) | ([a token that is generated at sign up], [valid confirmation code in the mail])  |200|
+          Redish-Access-Token | [other value] |401|
+          confirmation_code  | [other value] |400|
+        completion: |
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          (Redish-Access-Token, password, password_confirmation) | ([a token that is generated at sign up], [valid password], [same password])  |200|
+          Redish-Access-Token | [other value] |401|
+          (password, password_confirmation) | ([other value], [other value]) |400|
+        edit: |
+          #### Examples
+
+          parameter|value|status code
+          ---|---|---
+          (Redish-Access-Token, password, password_confirmation) | ('valid_redish_access_token', 'password', 'password') |200|
+          (Redish-Access-Token, password, password_confirmation) | ('valid_redish_access_token', 'password', [other value]) |400|
+          Redish-Access-Token | [other value] |401|
+
+      merchant:
+        merchant_users:
+          create: |

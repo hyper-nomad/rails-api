@@ -1,0 +1,6 @@
+development: &development
+  facebook:
+    key: 737086079765881
+    secret: a3a71a915354d9061c6ab89c24bec119
+test:
+  <<: *development

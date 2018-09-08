@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title
+      | Redish
+    = stylesheet_link_tag    'app_web_view', media: 'all'
+    = javascript_include_tag 'app_web_view'
+    = csrf_meta_tags
+  body
+    = yield

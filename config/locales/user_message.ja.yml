@@ -1,0 +1,28 @@
+ja:
+  user_messages:
+    error:
+      invalid_login_info: ログイン情報が間違っています。
+      purchase:
+        total_amount_greater_than_zero: ０円のクーポンブックは購入できません。
+        edition_is_on_sale: クーポンブックは販売を停止しました。
+        already_have_usable_coupon_book: 既に利用可能なクーポンブックを持っています。
+        already_have_progress_purchase: 購入途中の他クーポンブックがあります。
+        reached_limit_by_user: クーポンブックの上限購入冊数を超えました。
+      sale_dish:
+        sale_dish_duplicate_at_the_same_time: すでに登録されている掲載期間と重複しています。
+        past_end_at: 掲載終了日時を過ぎています。
+      coupon:
+        no_usable_coupon_book: 利用可能なクーポンブックを持っていません。
+        reached_sale_dish_limit_within_term: ランチ毎に期間内で利用可能なクーポン発行上限枚数に達しました。
+        already_canceled_today: キャンセルした当日に同メニューのチケットを発行できません。
+        already_issued_today: 同メニューのチケット発行は１日１回までです。
+        unfixed_next_sequence: アクセス過多によりチケット発行に失敗しました。再度チケットを発行してください。
+      sign_up:
+        naked_email_duplicated: すでに登録されたメールアドレスです。
+      sign_in:
+        invalid_account: メールアドレスかパスワードが間違っています。
+      email:
+        same_email: 同じメールアドレスです。
+    info:
+      sign_in: ログインしました。
+      send_confirm_mail: 確認メールを送信しました。

@@ -1,0 +1,9 @@
+h2
+  - if @errors.empty?
+    | メールアドレスの確認が完了しました。
+  - else
+    | メールアドレスの確認に失敗しました。
+ul
+  - @errors.full_messages.each do |msg|
+    li
+      = msg

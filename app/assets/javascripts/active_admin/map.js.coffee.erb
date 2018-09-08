@@ -1,0 +1,72 @@
+$(document).ready ->
+  mapEventHandler()
+
+maps = {}
+
+mapEventHandler = ->
+  $('.from-addr').each (i, link) ->
+    $(link).click fromAddr
+
+  $('.from-latlng').each (i, link) ->
+    $(link).click fromLatLng
+
+  $('.to-latlng').each (i, link) ->
+    $(link).click toLatLng
+
+fromAddr = (e) ->
+  map = mapFromActionLink e.target
+  ymap = getYMap(map.attr('id'))
+  geoSearch {query: map.addr}, ymap
+
+fromLatLng = (e) ->
+  map = mapFromActionLink e.target
+  return if map.blank?
+
+  ymap = getYMap(map.attr('id'))
+  ymap.drawMap(new Y.LatLng(map.lat, map.lng), 18, Y.LayerSetId.NORMAL)
+
+toLatLng = (e) ->
+  map = mapFromActionLink e.target
+  ymap = getYMap(map.attr('id'))
+  center = ymap.getCenter()
+  $(map.data('lat')).val(Number((center.Lat).toFixed(7)));
+  $(map.data('lng')).val(Number((center.Lon).toFixed(7)));
+
+mapFromActionLink = (link) ->
+  map = $(link).parent().prev('.addr-map');
+  map.lat = $(map.data('lat')).val()
+  map.lng = $(map.data('lng')).val()
+  _addr = map.data('addr').map (e, i) ->
+    $(e).val()
+  map.addr = _addr.join('')
+  map
+
+getYMap = (id) ->
+  return maps[id] if maps[id]
+  ymap = new Y.Map(id)
+  ymap.addControl(new klazz()) for klazz in [Y.SliderZoomControlHorizontal, Y.CenterMarkControl]
+  maps[id] = ymap
+
+geoSearch = (condition, map) ->
+  params = condition
+  params['<%=YahooApi::KEY%>'] = '<%=YahooApi::APP_KEY%>'
+  params['output'] = 'json'
+  $.ajax
+    url: '<%=YahooApi::GEO_LIB%>'
+    data: params
+    type: 'get'
+    dataType: 'jsonp'
+    success: (result) ->
+      refrectSearchResult result, map
+
+refrectSearchResult = (result, ymap) ->
+  if(result.Feature && result.Feature.length > 0)
+    ll = result.Feature[0].Geometry.Coordinates.split(',')
+    ymap.drawMap(new Y.LatLng(ll[1], ll[0]), 18, Y.LayerSetId.NORMAL)
+  else
+    # TODO: I18n.t('views.map.search_not_found')が解決できない（読み込み順の問題？）
+    alert "住所からの地図検索ができませんでした。地図内の検索ボックスに住所を入力し、再検索してください。"
+    search = new Y.SearchControl({query: 'abcd'})
+    ymap.addControl search
+    ymap.drawMap(new Y.LatLng(35.6569923, 139.6989249), 18, Y.LayerSetId.NORMAL)
+    window.ymap = ymap

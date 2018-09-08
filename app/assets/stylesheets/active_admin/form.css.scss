@@ -1,0 +1,121 @@
+fieldset.inputs.col2{
+		border: 0;
+		box-shadow: none;
+		margin-bottom: 0;
+		padding: 0;
+		ol{
+				overflow: hidden;
+				li{
+						float: left;
+				}
+				li:first-child{
+						width: 50%;
+						label{
+								width: 39%;
+						}
+						input{
+								width: calc(60% - 22px);
+						}
+				}
+
+				li:last-child {
+						width: 40%;
+				}
+		}
+}
+
+fieldset.inputs.multiple_cols{
+		border: 0;
+		box-shadow: none;
+		margin-bottom: 0;
+		padding: 0;
+		ol{
+				overflow: hidden;
+				li{
+						label{ width: 120px; }
+						input{ width: 150px; }
+						float: left;
+				}
+		}
+}
+
+select{
+    height: 30px;
+    font-size: 100%;
+    padding: 12px 50px 12px 12px;
+    border: 1px solid #B3B3B3;
+    border-radius: 4px;
+    text-indent: .01px;
+    text-overflow: "";
+}
+
+a.action_button{
+		-webkit-border-radius: 200px;
+		-moz-border-radius: 200px;
+		border-radius: 200px;
+		display: inline-block;
+		font-weight: bold;
+		font-size: 1.0em;
+		font-family: Helvetica, Arial, sans-serif;
+		line-height: 12px;
+		margin-right: 3px;
+		padding: 7px 16px 6px;
+		text-decoration: none;
+		-webkit-font-smoothing: antialiased;
+		background: #838a90;
+		background: -webkit-linear-gradient(-90deg, #838a90, #414549);
+		background: -moz-linear-gradient(-90deg, #838a90, #414549);
+		background: linear-gradient(180deg, #838a90, #414549);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF838A90', endColorstr='#FF414549');
+		-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF838A90', endColorstr='#FF414549');
+		text-shadow: #000 0 1px 0;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 0px rgba(255, 255, 255, 0.2) inset;
+		border: solid 1px #484e53;
+		border-color: #484e53;
+		border-top-color: #616a71;
+		border-right-color: #484e53;
+		border-bottom-color: #363b3f;
+		border-left-color: #484e53;
+		color: #efefef;
+		cursor: pointer;
+}
+
+a.ref_button,input.ref_button{
+		webkit-border-radius: 200px;
+		-moz-border-radius: 200px;
+		border-radius: 200px;
+		display: inline-block;
+		font-weight: bold;
+		font-size: 1.0em;
+		font-family: Helvetica, Arial, sans-serif;
+		line-height: 12px;
+		margin-right: 3px;
+		padding: 7px 16px 6px;
+		text-decoration: none;
+		-webkit-font-smoothing: antialiased;
+		background: #FFFFFF;
+		background: -webkit-linear-gradient(-90deg, #FFFFFF, #E7E7E7);
+		background: -moz-linear-gradient(-90deg, #FFFFFF, #E7E7E7);
+		background: linear-gradient(180deg, #FFFFFF, #E7E7E7);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFE7E7E7');
+		-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFE7E7E7');
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(255, 255, 255, 0.8) inset;
+		border: solid 1px #c7c7c7;
+		border-color: #c7c7c7;
+		border-top-color: #d3d3d3;
+		border-right-color: #c7c7c7;
+		border-bottom-color: #c2c2c2;
+		border-left-color: #c7c7c7;
+		text-shadow: #fff 0 1px 0;
+		color: #5E6469;
+		cursor: pointer;
+}
+
+.tagselect{
+		min-width: 200px;
+}
+
+/* 各一覧の上部に表示されるリンク群 ※一括処理をするページのみ上書きすれば良いかな... */
+.table_tools{
+		display: none;
+}
