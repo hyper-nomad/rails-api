@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160610085513) do
 
-  create_table "admin_role_assigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "admin_role_assigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "admin_role_id", limit: 4
     t.integer  "admin_user_id", limit: 4
     t.datetime "created_at",              null: false
@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(version: 20160610085513) do
   add_index "admin_role_assigns", ["admin_role_id", "admin_user_id"], name: "index_admin_role_assigns_on_admin_role_id_and_admin_user_id", unique: true, using: :btree
   add_index "admin_role_assigns", ["admin_user_id"], name: "index_admin_role_assigns_on_admin_user_id", using: :btree
 
-  create_table "admin_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "admin_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "key",        limit: 255
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20160610085513) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "app_devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "app_devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "type",       limit: 255
     t.integer  "user_id",    limit: 4
     t.string   "token",      limit: 255
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20160610085513) do
   add_index "app_devices", ["type", "token"], name: "unique_device_token", unique: true, using: :btree
   add_index "app_devices", ["user_id"], name: "index_app_devices_on_user_id", using: :btree
 
-  create_table "emails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "emails", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "naked",      limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20160610085513) do
 
   add_index "emails", ["naked"], name: "index_emails_on_naked", unique: true, using: :btree
 
-  create_table "login_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "login_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",       limit: 4
     t.string   "provider",      limit: 255,   null: false
     t.string   "uid",           limit: 255,   null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20160610085513) do
   add_index "login_accounts", ["provider", "uid"], name: "index_login_accounts_on_provider_and_uid", unique: true, using: :btree
   add_index "login_accounts", ["user_id"], name: "index_login_accounts_on_user_id", using: :btree
 
-  create_table "merchant_role_assigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "merchant_role_assigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "merchant_role_id", limit: 4
     t.integer  "merchant_user_id", limit: 4
     t.datetime "created_at",                 null: false
@@ -99,14 +99,14 @@ ActiveRecord::Schema.define(version: 20160610085513) do
   add_index "merchant_role_assigns", ["merchant_role_id", "merchant_user_id"], name: "by_merchant_role_id_and_merchant_user_id", unique: true, using: :btree
   add_index "merchant_role_assigns", ["merchant_user_id"], name: "index_merchant_role_assigns_on_merchant_user_id", using: :btree
 
-  create_table "merchant_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "merchant_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "key",        limit: 255
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "merchant_user_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "merchant_user_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "merchant_user_id", limit: 4,   null: false
     t.string   "first_name",       limit: 255, null: false
     t.string   "last_name",        limit: 255, null: false
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20160610085513) do
   add_index "merchant_user_profiles", ["last_name", "first_name"], name: "index_merchant_user_profiles_on_last_name_and_first_name", using: :btree
   add_index "merchant_user_profiles", ["merchant_user_id"], name: "index_merchant_user_profiles_on_merchant_user_id", unique: true, using: :btree
 
-  create_table "merchant_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "merchant_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 20160610085513) do
   add_index "merchant_users", ["reset_password_token"], name: "index_merchant_users_on_reset_password_token", unique: true, using: :btree
   add_index "merchant_users", ["unlock_token"], name: "index_merchant_users_on_unlock_token", unique: true, using: :btree
 
-  create_table "oauth_access_grants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "oauth_access_grants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "resource_owner_id", limit: 4,     null: false
     t.integer  "application_id",    limit: 4,     null: false
     t.string   "token",             limit: 255,   null: false
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(version: 20160610085513) do
 
   add_index "oauth_access_grants", ["token"], name: "index_oauth_access_grants_on_token", unique: true, using: :btree
 
-  create_table "oauth_access_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "oauth_access_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "resource_owner_id", limit: 4
     t.integer  "application_id",    limit: 4
     t.string   "token",             limit: 255, null: false
@@ -185,7 +185,7 @@ ActiveRecord::Schema.define(version: 20160610085513) do
   add_index "oauth_access_tokens", ["resource_owner_id"], name: "index_oauth_access_tokens_on_resource_owner_id", using: :btree
   add_index "oauth_access_tokens", ["token"], name: "index_oauth_access_tokens_on_token", unique: true, using: :btree
 
-  create_table "oauth_applications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "oauth_applications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",         limit: 255,                null: false
     t.string   "uid",          limit: 255,                null: false
     t.string   "secret",       limit: 255,                null: false
@@ -199,26 +199,7 @@ ActiveRecord::Schema.define(version: 20160610085513) do
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
 
-  create_table "user_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.integer  "user_id",         limit: 8,   null: false
-    t.string   "first_name",      limit: 255, null: false
-    t.string   "last_name",       limit: 255, null: false
-    t.string   "first_name_kana", limit: 255
-    t.string   "last_name_kana",  limit: 255
-    t.datetime "birthday"
-    t.integer  "prefecture",      limit: 4
-    t.string   "address",         limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "gender",          limit: 4
-    t.string   "icon_url",        limit: 255
-  end
-
-  add_index "user_profiles", ["first_name", "last_name"], name: "index_user_profiles_on_first_name_and_last_name", using: :btree
-  add_index "user_profiles", ["first_name_kana", "last_name_kana"], name: "index_user_profiles_on_first_name_kana_and_last_name_kana", using: :btree
-  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id", unique: true, using: :btree
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  limit: 255
     t.string   "encrypted_password",     limit: 255
     t.string   "reset_password_token",   limit: 255

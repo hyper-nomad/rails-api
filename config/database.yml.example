@@ -4,12 +4,12 @@ default: &default
 
 development:
   <<: *default
-  database: redish-development
+  database: rails-development
   username:
   password:
 
 test:
   <<: *default
-  database: redish-test
+  database: rails-test
   username:
   password:
