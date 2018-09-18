@@ -38,4 +38,5 @@ Session.vim
 .netrwhist
 *~
 
-
+# Vagrant
+.vagrant/
