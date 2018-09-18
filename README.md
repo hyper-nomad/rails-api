@@ -1,9 +1,17 @@
 # rails-api
 redish backend api server
 
-# Ruby install
-rubyは2015-05-10現在stable最新バージョンの2.3.1を使っています。
-rbenvの利用を想定し、.ruby-versionをgit管理下に置いています。
+## Vagrant
+```
+$ vagrant up
+$ vagrant ssh
+$ sudo yum -y update
+$ sudo yum -y install git
+$ git clone https://github.com/dotinstallres/centos6.git
+$ cd centos6
+$ ./run.sh
+$ exec $SHELL -l
+```
 
 ## bundler
 ```
