@@ -34,30 +34,32 @@ Bundler version 1.16.5
 # rails-api
 ```
 # vagrant ssh後に実行
-# cd /vagrant/
+$ cd /vagrant/
 $ bundle install --path vendor/bundle
 $ cp config/database.yml.example config/database.yml
 $ cp config/accounts.example.yml config/accounts.yml
-$ rake db:create db:migrate db:seed
+$ bundle exec rake db:create db:migrate db:seed
 ```
 以上を順次実行すればdevelopment環境でrails-apiを実行する準備は完了です。
 
 ## コンソールとサーバの実行
 ```
-$ rails console
-$ rails server
+# vagrant ssh後に実行
+$ bundle exec rails console
+$ bundle exec rails s -b 192.168.33.30
 ```
 
 ## rspec実行
 ```
-$ RAILS_ENV=test rake db:drop db:create db:migrate db:seed
-$ rspec spec/. -f d
+$ cd /vagrant/
+$ RAILS_ENV=test bundle exec rake db:drop db:create db:migrate db:seed
+$ bundle exec rspec spec/. -f d
 ```
 
 ## Links
 - swagger json
-  - http://localhost:3000/api/v2/doc
+  - http://192.168.33.30:3000/api/v2/doc
 - swagger ui
-  - http://localhost:3000/docs
+  - http://192.168.33.30:3000/docs
 - sign up
-  - http://localhost:3000/users/sign_up
+  - http://192.168.33.30:3000/users/sign_up
