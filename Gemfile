@@ -42,7 +42,6 @@ gem 'draper', '>= 1.0.0'
 # Image Uploader
 gem 'carrierwave'
 gem 'fog'
-gem 'rmagick', require: 'RMagick'
 gem 'jquery-fileupload-rails'
 gem "select2-rails"
 
