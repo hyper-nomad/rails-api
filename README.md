@@ -1,8 +1,16 @@
 # rails-api
 redish backend api server
 
-## Vagrant
+## git clone
 ```
+# vagrant ssh前に実行
+$ git clone git@github.com:hyper-nomad/rails-api.git
+$ cd rails-api
+```
+
+## vagrant
+```
+$ vagrant plugin install vagrant-vbguest
 $ vagrant up
 $ vagrant ssh
 $ sudo yum -y update
@@ -11,19 +19,22 @@ $ git clone https://github.com/dotinstallres/centos6.git
 $ cd centos6
 $ ./run.sh
 $ exec $SHELL -l
+$ ruby -v
+ruby 2.3.1p112
 ```
 
 ## bundler
 ```
+# vagrant ssh後に実行
 $ gem install bundler
 $ bundle -v
-Bundler version 1.12.3
+Bundler version 1.16.5
 ```
 
 # rails-api
 ```
-$ git clone git@github.com:hyper-nomad/rails-api.git
-$ cd rails-api
+# vagrant ssh後に実行
+# cd /vagrant/
 $ bundle install --path vendor/bundle
 $ cp config/database.yml.example config/database.yml
 $ cp config/accounts.example.yml config/accounts.yml
